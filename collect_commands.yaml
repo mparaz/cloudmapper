@@ -89,6 +89,16 @@
   Parameters:
   - Name: Bucket
     Value: s3-list-buckets.json|.Buckets[]?|.Name
+- Service: s3
+  Request: get-bucket-lifecycle-configuration
+  Parameters:
+  - Name: Bucket
+    Value: s3-list-buckets.json|.Buckets[]?|.Name
+- Service: s3
+  Request: get-bucket-versioning
+  Parameters:
+  - Name: Bucket
+    Value: s3-list-buckets.json|.Buckets[]?|.Name
 - Service: route53
   Request: list-hosted-zones
 - Service: route53
@@ -330,6 +340,11 @@
   Parameters:
   - Name: KeyId
     Value: kms-list-keys.json|.Keys[]?|.KeyId
+- Service: kms
+  Request: list-aliases
+  Parameters:
+  - Name: KeyId
+    Value: kms-list-keys.json|.Keys[]?|.KeyId
 - Service: lambda
   Request: list-functions
 - Service: lambda
@@ -426,3 +441,9 @@
       Value: dynamodb-list-tables.json|.TableNames[]?|.
 - Service: securityhub
   Request: describe-hub
+- Service: lakeformation
+  Request: get-data-lake-settings
+- Service: lakeformation
+  Request: list-resources
+- Service: athena
+  Request: list-work-groups
